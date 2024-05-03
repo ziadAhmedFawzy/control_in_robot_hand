@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="this's website to control in robot hand">
+        <meta name="author" content="ziad Fawzy">
+        <title>control in robot hand</title>
+        <style>
+            * {
+            padding: 0;
+            margin: 0;
+            /* change code */
+            /* font-family: "cairo"; */
+        }
+        .header {
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            /* new code */
+            font-family: "cairo";
+            /* ------------ */
+            }
+            .header img {
+            width: 150px;
+            }
+            body {
+            background-color: #03a9f4;
+            }
+            .parent {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin: 20px auto;
+            }
+            .parent div {
+            margin: 10px 50px;
+            border: 10px solid #fff;
+            border-radius: 50%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "cairo";
+            font-size: 53px;
+            width: 100px;
+            height: 100px;
+            transition-duration: 0.5s;
+            }
+            .parent div:hover {
+            background-color: #fff;
+            color: #03a9f4;
+            }
+            .parent div a {
+            font-size: 60px;
+            text-decoration: none;
+            color: #673ab7;
+            }
+            /* new code */
+            .display {width: 80%;margin: 80px auto 0 auto;background-color: #21294b;color: #fff;padding: 20px;font-family: monospace;border-radius: 10px;}
+            .display p {margin: 30px;}
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>control in robot's hand</h1>
+            <p>IoT innovators</p>
+        </div>
+        <!-- new code 
+            i'm add function changePosition
+        -->
+        <div class="parent">
+            <div class="child1">
+                <a onclick="changePosition(this.innerHTML)" href="/1">1</a>
+            </div>
+            <div class="child2">
+                <a onclick="changePosition(this.innerHTML)" href="/2">2</a>
+            </div>
+            <div class="child3">
+                <a onclick="changePosition(this.innerHTML)" href="/3">3</a>
+            </div>
+            <div class="child4">
+                <a onclick="changePosition(this.innerHTML)" href="/4">4</a>
+            </div>
+            <div class="child5">
+                <a onclick="changePosition(this.innerHTML)" href="/5">5</a>
+            </div>
+        </div>
+        <!-- new code -->
+        <div class="display"><h4>terminal</p><p>$ choose your position<span id="load"></span></p><p>$ your position = <span id="pos">0</span></p>
+</div>
+        <script>
+            // new code (add js)
+            let pos = document.getElementById("pos");
+            let load = document.getElementById("load");
+            function changePosition(position) {pos.innerHTML = position;}
+            setInterval(function() {
+                load.innerHTML += "."
+                if(load.innerHTML.length > 3)
+                {load.innerHTML = ""}
+            },1000);
+        </script>
+    </body>
+</html>
